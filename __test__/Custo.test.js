@@ -1,12 +1,13 @@
 import Custo from "../models/Custo";
+
 describe('Testes da regra de negócio', () => {
     test('Deve iniciar com os preços padrão', () => {
         const custoPadrao = new Custo()
 
-        expect(custoPadrao.leite).toBe(4.50),
-        expect(custoPadrao.acucar).toBe(4.89),
-        expect(custoPadrao.gema).toBe(0.80),
-        expect(custoPadrao.frutasV).toBe(35.00),
+        expect(custoPadrao.leite).toBe(4.50)
+        expect(custoPadrao.acucar).toBe(4.89)
+        expect(custoPadrao.creme).toBe(12.90)
+        expect(custoPadrao.frutasV).toBe(35.00)
         expect(custoPadrao.acidoC).toBe(18.00)
     })
 
@@ -14,18 +15,18 @@ describe('Testes da regra de negócio', () => {
         const custo = new Custo()
 
         const ingredientes = {
-            leite: 1000000,   // 1000 L
-            acucar: 1000000,  // 1000 kg
-            gema: 1000,       // 1000 unidades
-            frutasV: 1000000, // 1000 kg
-            acidoC: 1000000   // 1000 kg
+            leite: 1000000,
+            acucar: 1000000,
+            creme: 1000000,
+            frutasV: 1000000,
+            acidoC: 1000000
         }
 
-        const precos = custo.calcularCustoTotal(ingredientes)
+        custo.calcularCustoTotal(ingredientes)
 
         expect(custo.precoIngredientes.leite).toBe(4500.00)   
         expect(custo.precoIngredientes.acucar).toBe(4890.00)  
-        expect(custo.precoIngredientes.gema).toBe(800.00)     
+        expect(custo.precoIngredientes.creme).toBe(12900.00)     
         expect(custo.precoIngredientes.frutasV).toBe(35000.00)
         expect(custo.precoIngredientes.acidoC).toBe(18000.00) 
     })
@@ -36,20 +37,14 @@ describe('Testes da regra de negócio', () => {
         const ingredientes = {
             leite: 1000000,  
             acucar: 1000000,  
-            gema: 1000,       
+            creme: 1000000,       
             frutasV: 1000000, 
             acidoC: 1000000  
         }
 
         custo.calcularCustoTotal(ingredientes)
 
-        const somaEsperada = Number((
-            4500 +
-            4890 +
-            800 +
-            35000 +
-            18000
-        ).toFixed(2))
+        const somaEsperada = Number((4500 + 4890 + 12900 + 35000 + 18000).toFixed(2))
 
         expect(custo.custoTotal).toBe(somaEsperada)
     })
@@ -60,7 +55,7 @@ describe('Testes da regra de negócio', () => {
         const ingredientesMock = {
             leite: 1000000,
             acucar: 1000000,
-            gema: 1000,
+            creme: 1000000,
             frutasV: 1000000,
             acidoC: 1000000
         }
@@ -91,7 +86,7 @@ describe('Testes da regra de negócio', () => {
         const ingredientesMock = {
             leite: 1000000,
             acucar: 0,
-            gema: 0,
+            creme: 0,
             frutasV: 1000000,
             acidoC: 0
         }
@@ -101,5 +96,4 @@ describe('Testes da regra de negócio', () => {
         expect(custo.precoIngredientes.leite).toBe(10000.00) 
         expect(custo.precoIngredientes.frutasV).toBe(50000.00) 
     })
-
 })
