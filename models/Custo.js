@@ -20,21 +20,21 @@ export default class Custo {
 
     calcularCustoTotal(qtdeIngredientes) {
         this.precoIngredientes = {
-            leite:   Number(((qtdeIngredientes.leite   / 1000) * this.leite).toFixed(2)),
-            acucar:  Number(((qtdeIngredientes.acucar  / 1000) * this.acucar).toFixed(2)),
-            creme:   Number(((qtdeIngredientes.creme   / 1000) * this.creme).toFixed(2)),
-            frutasV: Number(((qtdeIngredientes.frutasV / 1000) * this.frutasV).toFixed(2)),
-            acidoC:  Number(((qtdeIngredientes.acidoC  / 1000) * this.acidoC).toFixed(2)), 
+            leite:   Number(((qtdeIngredientes.leite        / 1000) * this.leite).toFixed(2)),
+            acucar:  Number(((qtdeIngredientes.acucar       / 1000) * this.acucar).toFixed(2)),
+            creme:   Number(((qtdeIngredientes.creme        / 1000) * this.creme).toFixed(2)),
+            frutasV: Number(((qtdeIngredientes.polpa        / 1000) * this.frutasV).toFixed(2)),
+            acidoC:  Number(((qtdeIngredientes.acidoCitrico / 1000) * this.acidoC).toFixed(2)),
         }
-
+    
         const soma =
             this.precoIngredientes.leite   +
             this.precoIngredientes.acucar  +
             this.precoIngredientes.creme   +
             this.precoIngredientes.frutasV +
             this.precoIngredientes.acidoC
-
-        this.custoTotal = Number(soma.toFixed(2))  
+    
+        this.custoTotal = Number(soma.toFixed(2))
         return this.custoTotal
     }
 
