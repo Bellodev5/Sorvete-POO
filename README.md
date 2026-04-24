@@ -1,7 +1,9 @@
 # 🍦 Sorvete-POO — Calculadora de Produção Industrial de Sorvete
 
 Sistema de **Programação Orientada a Objetos (POO)** em JavaScript que simula o planejamento de produção de sorvetes em escala industrial. Dado o diâmetro e a altura de um pote, a meta de produção em toneladas e o tamanho do pote, o sistema calcula volume, peso unitário, rendimento, ingredientes necessários e custo total.
-
+🔗 Links Úteis
+Sistema em Produção: sorvete-poo.vercel.app
+Gestão do Projeto (Trello): Quadro de Tarefas
 ---
 
 ## 📁 Estrutura do Projeto
